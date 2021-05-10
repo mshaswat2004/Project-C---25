@@ -4,8 +4,8 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Render = Matter.Render;
-var dustbinObj,groundObject, paperObject,
-var world;
+var dustbinObj,groundObject, paperObject ;
+//var world ;
 
 
 function setup() {
@@ -18,7 +18,7 @@ function setup() {
 	
 	groundObject=new ground(width/2,670,width,20);
 	dustbinObj=new dustbin(1200,650);
-	paperObject=new Paper(1000, 200) ;
+	paperObject=new Paper(200,400, 50) ;
 
 	Engine.run(engine);
   
@@ -34,5 +34,14 @@ function draw() {
   dustbinObj.display();
   paperObject.display() ;
 
-}
 
+}
+function keyPressed () {
+	if(keyCode === RIGHT_ARROW){
+		Matter.Body.applyForce(paperObject.body, paperObject.body.position, {x : 130, y : -180})
+		
+	
+}
+} 
+
+ 
